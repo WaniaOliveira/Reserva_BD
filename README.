@@ -1,0 +1,81 @@
+Sistema de Reservas – Banco de Dados MySQL
+
+Este repositório apresenta a criação de um banco de dados para um sistema de reservas, desenvolvido para estudo e prática de SQL avançado. 
+O projeto inclui tabelas, relacionamentos, gatilhos (triggers), procedimentos armazenados (procedures) e consultas para simular a lógica real de um sistema de hospedagem.
+
+* Descrição Geral
+
+O banco de dados reservasBDAula controla clientes, quartos e reservas. 
+Ele automatiza cálculos importantes, verifica conflitos de datas e organiza a lógica de negócio diretamente no MySQL.
+
+O projeto demonstra o uso de:
+Modelagem de dados
+Integridade referencial
+Triggers
+Stored Procedures
+Regras de negócio aplicadas no banco
+
+🗂️ Estrutura do Banco de Dados
+Tabelas
+
+cliente – informações dos hóspedes
+quarto – cadastro de suítes e apartamentos
+reserva – armazena as reservas realizadas
+
+Relacionamentos
+cliente (1) -> (N) reserva
+quarto (1) -> (N) reserva
+
+⚙️ Funcionalidades Implementadas
+1. Cadastro de Clientes
+Nome, CPF, e-mail e UF
+CPF único para evitar duplicidades
+
+2. Cadastro de Quartos
+Número e tipo (Suíte / Apartamento)
+
+3. Sistema de Reservas
+Datas de entrada e saída
+Tipo de acomodação
+Cálculo automático da diária e total
+Registro da forma de pagamento
+
+🔧 Triggers e Procedures
+Trigger – set_diaria_before_insert
+Define o valor da diária baseado no tipo de acomodação
+Calcula automaticamente o total (diárias × valor)
+Stored Procedures
+inserir_reserva → insere uma reserva e retorna o ID
+verificar_conflito_reserva → verifica conflitos de datas
+reserva_com_condicional → só insere se não houver conflito
+listar_quartos_disponiveis → mostra quartos livres por período
+
+Testes Incluídos no Script
+
+O arquivo já contém exemplos de:
+Inserção de clientes
+Consultas
+Atualização e exclusão
+Criação de reservas
+Verificação de conflitos
+Listagem de disponibilidade
+
+▶️ Como Executar
+
+Abra o MySQL Workbench
+Carregue o arquivo reservabdaula.sql
+Execute todo o script
+Atualize o schema
+Rode os testes incluídos
+
+📄 Arquivo Principal
+reservabdaula.sql – contém toda a estrutura, inserts, triggers, procedures e testes.
+
+ Objetivo do Projeto
+Este projeto foi desenvolvido para praticar e demonstrar:
+Organização e modelagem de banco de dados
+Estruturas SQL avançadas
+Lógica aplicada diretamente no SGBD
+
+Boas práticas de desenvolvimento com MySQL
+reservabdaula.sql → Contém toda a estrutura do banco e testes.
